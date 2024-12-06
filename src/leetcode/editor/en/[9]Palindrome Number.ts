@@ -41,14 +41,15 @@
 
 //leetcode submit region begin(Prohibit modification and deletion)
 function isPalindrome(x: number): boolean {
-    let s = x.toString();
-    let sr = s.split('');
-    let sl = [...sr].reverse();
-    for (let i = 0; i < sr.length; i++) {
-        if (sr[i] !== sl[i]) {
+    let s = `${x}`;
+    let len = s.length;
+    let rightIndex = len-1;
+    for(let i = 0; i < len/2; i++){
+        if(s[i] !== s[rightIndex--]){
             return false;
         }
     }
     return true;
+
 }
 //leetcode submit region end(Prohibit modification and deletion)
