@@ -44,12 +44,23 @@
 //O(n²)
 // time complexity?
 //
-// Related Topics Array Hash Table 👍 59088 👎 2112
+// Related Topics Array Hash Table 👍 59119 👎 2114
 
 
 //leetcode submit region begin(Prohibit modification and deletion)
 function twoSum(nums: number[], target: number): number[] {
-
+    let index1 = 0;
+    let index2 = 1;
+    for (let i = 0; i < nums.length; i++) {
+        index1 = i;
+        for (let j = i + 1; j < nums.length; j++) {
+            index2 = j;
+            if (nums[i] + nums[j] === target) {
+                return [index1, index2];
+            }
+        }
+        if (index1 == nums.length - 2) return [];
+    }
     return [];
-};
+}
 //leetcode submit region end(Prohibit modification and deletion)
