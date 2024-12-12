@@ -1,18 +1,28 @@
-// function lengthOfLongestSubstring(s: string): number {
-//
-//     let setString: Set<string> = new Set();
-//     let left = 0;
-//     let max = 0;
-//     for (let right = 0; right < s.length; right++) {
-//         //檢查當前是否有包含該字串,由左往右一直刪除 直到刪道沒有為止
-//         while (setString.has(s[right])) {
-//             setString.delete(s[left]);
-//             left++;
-//         }
-//         setString.add(s[right]);
-//         max = Math.max(max,right-left+1);
+// function checkPalindrome(leftIndex: number, rightIndex: number, s: string): number {
+//     while (leftIndex >= 0 && rightIndex < s.length && s[leftIndex] === s[rightIndex]) {
+//         leftIndex--;
+//         rightIndex++;
 //     }
-//     return max;
-// };
+//     return rightIndex - leftIndex - 1;
+// }
 //
-// lengthOfLongestSubstring("abcabcbb");
+// function longestPalindrome(s: string): string {
+//
+//     let max = 0;
+//     let start = 0;
+//
+//     for (let i = 0; i < s.length; i++) {
+//         let odd = checkPalindrome(i, i, s);
+//         let even = checkPalindrome(i, i + 1, s);
+//
+//         const len = Math.max(odd, even);
+//         if (max < len) {
+//             max = len;
+//             start = i - Math.floor((len - 1)/ 2) ;
+//         }
+//     }
+//     console.log(s.substring(start, start + max))
+//     return s.substring(start, start + max);
+//
+// }
+// longestPalindrome("cbbd")
